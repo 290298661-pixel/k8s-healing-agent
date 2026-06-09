@@ -84,6 +84,65 @@ K8s 自愈 AI Agent ←── 你在这里 ★
 
 ---
 
+## 🚀 快速开始
+
+### 前提
+
+- Python 3.12+
+- Kubernetes 集群 (Kind/Minikube/K3s)
+- Claude API Key ([获取](https://console.anthropic.com/))
+- 钉钉机器人 Webhook（可选）
+
+### 1. 克隆并安装依赖
+
+```bash
+git clone https://github.com/290298661-pixel/k8s-healing-agent.git
+cd k8s-healing-agent
+pip install -r requirements.txt
+```
+
+### 2. 配置
+
+```bash
+cp config/config.example.yaml config/config.yaml
+# 编辑 config.yaml，填入 Claude API Key 和钉钉 Webhook
+```
+
+### 3. 部署 RBAC（最小权限）
+
+```bash
+kubectl apply -f deploy/rbac.yaml
+```
+
+### 4. 本地运行
+
+```bash
+python -m src.main
+# 或
+uvicorn src.main:app --reload --port 8080
+```
+
+### 5. 配置 Prometheus AlertManager Webhook
+
+```yaml
+receivers:
+  - name: 'k8s-healing-agent'
+    webhook_configs:
+      - url: 'http://healing-agent:8080/webhook/alertmanager'
+```
+
+### 6. 验证
+
+```bash
+# 健康检查
+curl http://localhost:8080/health
+
+# 查看 API 文档
+open http://localhost:8080/docs
+```
+
+---
+
 ## 🧠 四大设计原则
 
 | # | 原则 | 说明 |
@@ -226,65 +285,6 @@ T+12s   完成（AUTO_EXEC 路径，不含验证等待）
 | 5 | **ReadinessProbe 失败** | 0.65-0.80 | 增加 initialDelaySeconds/failureThreshold | ⚠️ 需审批 |
 | 6 | **DiskPressure (Evicted)** | 0.80-0.90 | Evicted Pod 自动调度到其他节点 | 🔔 仅通知 |
 | 7 | **ConfigMap/Secret 缺失** | 0.90-0.95 | 报告缺失资源名称 | ⚠️ 需审批 |
-
----
-
-## 🚀 快速开始
-
-### 前提
-
-- Python 3.12+
-- Kubernetes 集群 (Kind/Minikube/K3s)
-- Claude API Key ([获取](https://console.anthropic.com/))
-- 钉钉机器人 Webhook（可选）
-
-### 1. 克隆并安装依赖
-
-```bash
-git clone https://github.com/290298661-pixel/k8s-healing-agent.git
-cd k8s-healing-agent
-pip install -r requirements.txt
-```
-
-### 2. 配置
-
-```bash
-cp config/config.example.yaml config/config.yaml
-# 编辑 config.yaml，填入 Claude API Key 和钉钉 Webhook
-```
-
-### 3. 部署 RBAC（最小权限）
-
-```bash
-kubectl apply -f deploy/rbac.yaml
-```
-
-### 4. 本地运行
-
-```bash
-python -m src.main
-# 或
-uvicorn src.main:app --reload --port 8080
-```
-
-### 5. 配置 Prometheus AlertManager Webhook
-
-```yaml
-receivers:
-  - name: 'k8s-healing-agent'
-    webhook_configs:
-      - url: 'http://healing-agent:8080/webhook/alertmanager'
-```
-
-### 6. 验证
-
-```bash
-# 健康检查
-curl http://localhost:8080/health
-
-# 查看 API 文档
-open http://localhost:8080/docs
-```
 
 ---
 
