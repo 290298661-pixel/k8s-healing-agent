@@ -2,8 +2,13 @@
 K8s 客户端封装 —— 统一的 K8s API 调用层
 """
 
+from __future__ import annotations
+
 import logging
-from typing import Optional
+from typing import TYPE_CHECKING, Optional
+
+if TYPE_CHECKING:
+    from kubernetes import client
 
 logger = logging.getLogger(__name__)
 

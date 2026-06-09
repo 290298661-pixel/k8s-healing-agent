@@ -1,6 +1,4 @@
 """修复方案模型"""
-from pydantic import BaseModel
-from typing import Optional
 from dataclasses import dataclass, field
 from enum import Enum
 

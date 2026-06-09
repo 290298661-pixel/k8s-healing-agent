@@ -1,6 +1,5 @@
 """诊断引擎单元测试"""
-import pytest
-from unittest.mock import AsyncMock, MagicMock, patch
+from unittest.mock import MagicMock
 
 from src.models.diagnosis import DiagnosisReport
 

@@ -7,13 +7,11 @@ Pipeline: 诊断 → AI 分析 → 验证 → 安全审查 → 决策 → 修复
 
 import asyncio
 import logging
-import os
 import time
 from datetime import datetime, timedelta, timezone
 
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI
 from pydantic import BaseModel
-from typing import Optional
 
 from src.config import Config
 from src.models.alert import AlertPayload

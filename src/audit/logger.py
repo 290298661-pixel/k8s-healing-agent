@@ -25,7 +25,6 @@ Schema:
   )
 """
 
-import json
 import logging
 import sqlite3
 import uuid

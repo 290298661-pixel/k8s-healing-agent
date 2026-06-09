@@ -8,7 +8,6 @@
 """
 
 import pytest
-import time
 
 
 class TestFaultInjection:

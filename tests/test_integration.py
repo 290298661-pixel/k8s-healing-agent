@@ -1,7 +1,7 @@
 """端到端集成测试 — 验证诊断→分析→决策→修复核心逻辑"""
 import pytest
 
-from src.models.fix import Decision, FixType
+from src.models.fix import Decision
 from src.models.diagnosis import DiagnosisReport
 from src.engine.decision import DecisionEngine
 from src.safety.validator import AIResponseValidator

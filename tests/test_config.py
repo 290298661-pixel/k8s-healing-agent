@@ -1,6 +1,5 @@
 """配置管理单元测试"""
 import os
-import pytest
 
 
 class TestConfig:
