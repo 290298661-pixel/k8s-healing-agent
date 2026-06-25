@@ -2,7 +2,7 @@
 
 > Event-driven Kubernetes remediation service that receives alerts, collects context, proposes actions, and executes approved fixes.
 
-[![Status](https://img.shields.io/badge/status-developing-yellow)](https://github.com/290298661-pixel/k8s-healing-agent)
+[![Status](https://img.shields.io/badge/status-developing-yellow)](https://github.com/Shaohan-He/k8s-healing-agent)
 [![Python](https://img.shields.io/badge/Python-3.12+-3776AB)](https://python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688)](https://fastapi.tiangolo.com/)
 [![K8s](https://img.shields.io/badge/K8s-v1.35-326CE5)](https://kubernetes.io/)
@@ -79,7 +79,7 @@ K8s Healing Agent 是一个实验性的 Kubernetes 告警处理服务。它接�
 ### 安装依赖
 
 ```bash
-git clone https://github.com/290298661-pixel/k8s-healing-agent.git
+git clone https://github.com/Shaohan-He/k8s-healing-agent.git
 cd k8s-healing-agent
 pip install -r requirements.txt
 ```
@@ -196,10 +196,10 @@ ruff check src tests
 
 | 仓库 | 关系 |
 | --- | --- |
-| [fleet-observability](https://github.com/290298661-pixel/fleet-observability) | 提供 Prometheus / AlertManager 告警来源 |
-| [fleet-gitops](https://github.com/290298661-pixel/fleet-gitops) | 可管理本服务的部署配置 |
-| [node-health-watcher](https://github.com/290298661-pixel/node-health-watcher) | 节点巡检告警可作为输入信号 |
-| [node-guardian](https://github.com/290298661-pixel/node-guardian) | 诊断命令可作为人工排查补充 |
+| [fleet-observability](https://github.com/Shaohan-He/fleet-observability) | 提供 Prometheus / AlertManager 告警来源 |
+| [fleet-gitops](https://github.com/Shaohan-He/fleet-gitops) | 可管理本服务的部署配置 |
+| [node-health-watcher](https://github.com/Shaohan-He/node-health-watcher) | 节点巡检告警可作为输入信号 |
+| [node-guardian](https://github.com/Shaohan-He/node-guardian) | 诊断命令可作为人工排查补充 |
 
 ## License
 
