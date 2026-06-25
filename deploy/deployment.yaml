@@ -26,7 +26,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: agent
-          image: ghcr.io/290298661-pixel/k8s-healing-agent:v0.1.0
+          image: ghcr.io/Shaohan-He/k8s-healing-agent:v0.1.0
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
